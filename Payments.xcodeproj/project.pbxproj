@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6ADC00F61EE1C16C00A2720A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADC00F51EE1C16C00A2720A /* main.m */; };
+		6ADC010B1EE217E100A2720A /* PaymentGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADC010A1EE217E100A2720A /* PaymentGateway.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		6ADC00F21EE1C16C00A2720A /* Payments */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Payments; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADC00F51EE1C16C00A2720A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6ADC01091EE217E100A2720A /* PaymentGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentGateway.h; sourceTree = "<group>"; };
+		6ADC010A1EE217E100A2720A /* PaymentGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentGateway.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				6ADC00F51EE1C16C00A2720A /* main.m */,
+				6ADC01091EE217E100A2720A /* PaymentGateway.h */,
+				6ADC010A1EE217E100A2720A /* PaymentGateway.m */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ADC00F61EE1C16C00A2720A /* main.m in Sources */,
+				6ADC010B1EE217E100A2720A /* PaymentGateway.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +254,7 @@
 				6ADC00FB1EE1C16C00A2720A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
