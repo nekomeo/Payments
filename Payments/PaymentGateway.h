@@ -10,6 +10,6 @@
 
 @interface PaymentGateway : NSObject
 
-@property (nonatomic) NSInteger processPaymentAmount;
+//- (void) 
 
 @end
