@@ -10,14 +10,9 @@
 
 @implementation PaymentGateway
 
-- (instancetype)init
+- (void)processPaymentAmount:(NSInteger)amount
 {
-    self = [super init];
-    if (self)
-    {
-        
-    }
-    return self;
+    [self.paymentDelegate processPaymentAmount:amount];
 }
 
 @end

@@ -8,29 +8,64 @@
 
 #import <Foundation/Foundation.h>
 #import "PaymentGateway.h"
+#import "StripePaymentService.h"
+#import "AmazonPaymentService.h"
+#import "PaypalPaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         char input[10];
-        int randomNumber = arc4random_uniform(900)+100;
+        NSInteger randomNumber = arc4random_uniform(900)+100;
+        PaymentGateway *paymentGateway = [[PaymentGateway alloc] init];
         
-        NSLog(@"Thank you for shopping at Acme.com Your total today is $%d. Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon", randomNumber);
+        NSLog(@"Thank you for shopping at Acme.com Your total today is $%lu. Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon", randomNumber);
         fgets(input, 10, stdin);
         strtok(input, "\n");
         NSString *inputString = [[NSString alloc] initWithUTF8String:input];
         
-        if ([inputString isEqualToString:@"1"])
+        PaypalPaymentService *paypal = [[PaypalPaymentService alloc] init];
+        StripePaymentService *stripe = [[StripePaymentService alloc] init];
+        AmazonPaymentService *amazon = [[AmazonPaymentService alloc] init];
+        
+        switch ([inputString intValue])
         {
-            NSLog(@"You have selected Paypal");
+            case 1:
+                paymentGateway.paymentDelegate = paypal;
+                [paymentGateway processPaymentAmount:randomNumber];
+                break;
+            case 2:
+                paymentGateway.paymentDelegate = stripe;
+                [paymentGateway processPaymentAmount:randomNumber];
+                break;
+            case 3:
+                paymentGateway.paymentDelegate = amazon;
+                [paymentGateway processPaymentAmount:randomNumber];
+            default:
+                break;
         }
-        if ([inputString isEqualToString:@"2"])
-        {
-            NSLog(@"You have selected Stripe");
-        }
-        if ([inputString isEqualToString:@"3"])
-        {
-            NSLog(@"You have selected Amazon");
-        }
+        
+        
+        
+        
+        
+        
+//        if ([inputString intValue] == 1)
+//        {
+//            PaypalPaymentService *paypal = [[PaypalPaymentService alloc] init];
+//            [paypal processPaymentAmount:randomNumber];
+//        }
+//        
+//        if ([inputString intValue] == 2)
+//        {
+//            StripePaymentService *stripe = [[StripePaymentService alloc] init];
+//            [stripe processPaymentAmount:randomNumber];
+//        }
+//        
+//        if ([inputString intValue] == 3)
+//        {
+//            AmazonPaymentService *amazon = [[AmazonPaymentService alloc] init];
+//            [amazon processPaymentAmount:randomNumber];
+//        }
         
     }
     return 0;
